@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de Amor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        
+        .contenedor-carta {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .sobre {
+            width: 100px;
+            height: 100px;
+            background-color: #f44336;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            margin: 0 auto;
+        }
+        
+        .sobre:hover {
+            transform: scale(1.1);
+        }
+        
+        .sobre:before {
+            content: "💌";
+            font-size: 40px;
+            color: white;
+        }
+        
+        .carta {
+            display: none;
+            margin-top: 20px;
+        }
+        
+        .heart-animation {
+            position: fixed;
+            z-index: 9999;
+            pointer-events: none;
+            animation: floatHeart 5s ease-out;
+        }
+        
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(0) rotate(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-800px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor-carta">
+        <div class="sobre" onclick="toggleCarta(this)"></div>
+        <div class="carta" id="carta">
+            <h2>¡oliiii oliis!</h2>
+
+            <p>Oliiii oliiii natyyy otra vez aquí con una cartaa en que yooo creee por Internet Esperooo si se veaa biennnn jsjsjs primerooo yo se queeee se te hace raro platicar conmigo después de todo lo que pasooo los regalos los chistes y cosas por el
+                estilo peroooo a la vez siento queeee desde un principio pude haberte dicho lo que en realiadad sentia anteriormente y es queeee recuerdas el collar del avión que te regalé antes de irme yo quize que fueras feliz con alguien más sabess
+                y yo mientras estaba en la uni los dias se me pasaban eternos por los trabajos y cosas nuevas la vdd cuando llego la temporada de las flores amarillas me acorde de tiii y apartir de ese diaaaa te seguí regalando pequeños detalles y es
+                que un diaaa tuveeee unaa platicaaaa con un amigo y el tenía razón en una cosa si quieres a alguien no la dejes ir sin por lo menos intentando y yo se que has tenido más relaciones y recuerdas cuando me decías que no eras una buena persona
+                por cosas que habías hecho la vdd no todos somos unos santos cada quien tuvo su historia yo igual pude haberte dicho lo mismo peroo sabes algoo yo se que a lo mejor y sigo de insistente sabes no seeee yo mismo lo siento perooo dabes algo
+                sigo haciéndolo en el simple hecho de nunca decirte nadaaa en el sentido de que las veces que te he mandado regalos nunca te he dicho cosasss concretas de vdd y es mass se quee no puedo forzar algo por solo simplemente mandarte regalos
+                y que te sientas con la obligación de escribirme o decirme cosass también se que en la escuela también los amigos de Goretti puede que pienses que no quieres que sean que te mando regalos y te entiendo yo se que dirás por que te digo todo
+                esto y es por mi sabes es que este viernes pensaba ir al coleeee y te soy sincero no se de que manera verteee o incluso saludarte te acuerdas del último regalo de tu cumple hay cuando me dijiste que pronto estaremos juntos perooo no entendí
+                esaaa partee sabesss y no se que me pasa cuando es algo que tenga que ver contigo se me van todas las palabras que tengo oara decirte desde un principio si sabias jajajaj y es queeee sabes por que sigo tratando de que siempre estes feliz
+                es queee eres la única niña que me dio su apoyo en el aspecto de que tienes una personalidad que no he visto en otras niñas y esa es la razón por que me gusta darte siempre regalos y miraaa saes una cosa con lo que me digas entenderé que
+                onda vdd y también se que hay mas chavos a los cuales te llaman la atención y yo solo soy un impedimento para que no lo lleves acabo peroo yo solo soy un simple chico que se preocupa por que estés bien y sii también a sido un poco mi culpa
+                por siempre revolverte en tus emociones perooo solo era esooo por si te veia en la escuela para que te pueda saludarrr eso era lo que no me dejaba dormir jsjsj y esooo es todoo Te quieroooo
+                <3 y espero te allá gustado la página ese link lo puedo modicar muchas vecesss más para que no se quede escrito en la misma cartaaa</p>
+                    <p>Te amo más de lo que las palabras pueden expresar.</p>
+                    <p>Con todo mi corazón,</p>
+                    <p></p>
+        </div>
+    </div>
+
+    <script>
+        function toggleCarta(button) {
+            var carta = button.nextElementSibling;
+            if (carta.style.display === "none" || carta.style.display === "") {
+                carta.style.display = "block";
+                showHeartAnimation(button);
+            } else {
+                carta.style.display = "none";
+            }
+        }
+
+        function showHeartAnimation(button) {
+            var heartAnimation = document.createElement("img");
+            heartAnimation.src = "https://i.pinimg.com/originals/60/f9/ed/60f9ed1210f818439a422f00ef2b4928.gif";
+            heartAnimation.classList.add("heart-animation");
+
+            document.body.appendChild(heartAnimation);
+
+            var buttonRect = button.getBoundingClientRect();
+            var buttonTop = buttonRect.top + window.scrollY;
+            var buttonLeft = buttonRect.left + window.scrollX;
+
+            heartAnimation.style.top = buttonTop + "px";
+            heartAnimation.style.left = buttonLeft + "px";
+
+            setTimeout(function() {
+                heartAnimation.remove();
+            }, 5000);
+        }
+    </script>
+</body>
+
+</html>
